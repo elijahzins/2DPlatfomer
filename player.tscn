@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bus201ygnlcqi" path="res://spike/spikeStand.png" id="2_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vonw3"]
+size = Vector2(32, 32)
 
 [sub_resource type="QuadMesh" id="QuadMesh_onrkg"]
 size = Vector2(1000, 150)
@@ -17,12 +18,14 @@ size = Vector2(1003.5, 150)
 disable_mode = 2
 script = ExtResource("1_onrkg")
 
-[node name="Sprite2D" type="Sprite2D" parent="player1"]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_onrkg")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player1"]
+position = Vector2(-9.536743e-07, 0)
+scale = Vector2(1.8, 1.8)
 shape = SubResource("RectangleShape2D_vonw3")
+
+[node name="Sprite2D" type="Sprite2D" parent="player1"]
+position = Vector2(0, 3)
+texture = ExtResource("2_onrkg")
 
 [node name="Camera2D" type="Camera2D" parent="player1"]
 
