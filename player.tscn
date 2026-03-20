@@ -1,10 +1,71 @@
-[gd_scene load_steps=6 format=3 uid="uid://e5oxlal1bvqy"]
+[gd_scene load_steps=13 format=3 uid="uid://e5oxlal1bvqy"]
 
 [ext_resource type="Script" uid="uid://c2nut0qvfe1uf" path="res://player_1.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://bus201ygnlcqi" path="res://spike/spikeStand.png" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://dxe3imhhspc6q" path="res://spike/spikeFall.png" id="3_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://dx7j4gih8vtvd" path="res://spike/spikeWalk1.png" id="4_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://doto8iqfqb4dn" path="res://spike/spikeJump.png" id="4_dw050"]
+[ext_resource type="Texture2D" uid="uid://blpn2f732kijq" path="res://spike/spikeJumpReady.png" id="5_b26j0"]
+[ext_resource type="Texture2D" uid="uid://4pedbhelfsyd" path="res://spike/spikeStand2.png" id="5_dw050"]
+[ext_resource type="Texture2D" uid="uid://bgbglfmxufei6" path="res://spike/spikeWalk2.png" id="6_b26j0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vonw3"]
 size = Vector2(32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n7ghd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_onrkg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2hs0m")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_dw050")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_b26j0")
+}, {
+"duration": 10.0,
+"texture": ExtResource("4_dw050")
+}],
+"loop": true,
+"name": &"jumpReady",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_onrkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1jxqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dw050")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_b26j0")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
 
 [sub_resource type="QuadMesh" id="QuadMesh_onrkg"]
 size = Vector2(1000, 150)
@@ -23,9 +84,12 @@ position = Vector2(-9.536743e-07, 0)
 scale = Vector2(1.8, 1.8)
 shape = SubResource("RectangleShape2D_vonw3")
 
-[node name="Sprite2D" type="Sprite2D" parent="player1"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player1"]
 position = Vector2(0, 3)
-texture = ExtResource("2_onrkg")
+sprite_frames = SubResource("SpriteFrames_n7ghd")
+animation = &"walk"
+frame = 2
+frame_progress = 0.8278511
 
 [node name="Camera2D" type="Camera2D" parent="player1"]
 
