@@ -31,6 +31,23 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 2.0,
+"texture": ExtResource("2_onrkg")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_b26j0")
+}, {
+"duration": 2.0,
+"texture": ExtResource("2_onrkg")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_dw050")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_dw050")
 }],
@@ -85,11 +102,11 @@ scale = Vector2(1.8, 1.8)
 shape = SubResource("RectangleShape2D_vonw3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player1"]
-position = Vector2(0, 3)
+position = Vector2(0, 3.0000002)
 sprite_frames = SubResource("SpriteFrames_n7ghd")
-animation = &"walk"
-frame = 2
-frame_progress = 0.8278511
+animation = &"idle"
+frame = 3
+frame_progress = 0.16841558
 
 [node name="Camera2D" type="Camera2D" parent="player1"]
 
