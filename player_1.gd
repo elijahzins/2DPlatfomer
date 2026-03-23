@@ -26,7 +26,7 @@ func _physics_process(delta):
 
 	# Jump
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		playerSprite.play("jumpReady")
+		playerSprite.play("jump")
 		velocity.y = JUMP_FORCE
 
 	# Move the character
@@ -36,6 +36,7 @@ func _physics_process(delta):
 	
 	if not velocity.x == 0 or (not velocity.y == 0 and not is_on_floor()):
 		stopped = 0
+		
 	if velocity.y > 0 and not is_on_floor():
 		playerSprite.play("fall")
 	else: if not velocity.x == 0 and is_on_floor():
