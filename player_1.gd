@@ -6,6 +6,7 @@ const GRAVITY = 900
 
 @onready var playerSprite = $AnimatedSprite2D
 var stopped = 0
+var is_grounded
 
 func _physics_process(delta):
 	# Apply gravity
@@ -33,7 +34,6 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	# Plays walk cycle or idle
-	
 	if not velocity.x == 0 or (not velocity.y == 0 and not is_on_floor()):
 		stopped = 0
 		
@@ -48,3 +48,7 @@ func _physics_process(delta):
 			playerSprite.play("default")
 			stopped += 1
 		
+#Passing through one-way tiles
+func _input(event : InputEvent):
+	if (event.is_action_pressed("ui_down") && is_on_floor()):
+		position.y += 1
