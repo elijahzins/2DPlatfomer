@@ -8,6 +8,9 @@ const GRAVITY = 900
 var stopped = 0
 var is_grounded
 
+func jump():
+	velocity.y = JUMP_FORCE
+
 func _physics_process(delta):
 	# Apply gravity
 	velocity.y += GRAVITY * delta
