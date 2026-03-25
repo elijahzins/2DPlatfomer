@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx7j4gih8vtvd"
-path="res://.godot/imported/spikeWalk1.png-a56ae6681f78555a61f9e773499e4cfe.ctex"
+uid="uid://b0xu2fkbcr6aw"
+path="res://.godot/imported/spikeProfile.png-f90aab18cffc8b95012d9df6d4d76ece.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spike/spikeWalk1.png"
-dest_files=["res://.godot/imported/spikeWalk1.png-a56ae6681f78555a61f9e773499e4cfe.ctex"]
+source_file="res://ArtAssets/CharacterArtAssets/SpikeArtAssets/spikeProfile.png"
+dest_files=["res://.godot/imported/spikeProfile.png-f90aab18cffc8b95012d9df6d4d76ece.ctex"]
 
 [params]
 

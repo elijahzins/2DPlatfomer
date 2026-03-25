@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pv5i4h4pdx6i"
-path="res://.godot/imported/tileset.png-1db98ebc86b7a227f1d09dc4fca54b25.ctex"
+uid="uid://dx7j4gih8vtvd"
+path="res://.godot/imported/spikeWalk1.png-fc6c3ba1ab004da2404274412255deea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ArtAssets/tileset.png"
-dest_files=["res://.godot/imported/tileset.png-1db98ebc86b7a227f1d09dc4fca54b25.ctex"]
+source_file="res://ArtAssets/CharacterArtAssets/SpikeArtAssets/spikeWalk1.png"
+dest_files=["res://.godot/imported/spikeWalk1.png-fc6c3ba1ab004da2404274412255deea.ctex"]
 
 [params]
 
