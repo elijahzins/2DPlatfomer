@@ -121,7 +121,6 @@ animations = [{
 size = Vector2(3442, 575)
 
 [node name="level" type="Node2D"]
-position = Vector2(0, -2)
 
 [node name="player1" type="CharacterBody2D" parent="." groups=["GBLplayer"]]
 disable_mode = 2
