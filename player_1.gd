@@ -32,20 +32,26 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		playerSprite.play("jump")
 		velocity.y = JUMP_FORCE
+		
+	if Input.is_action_just_pressed("ui_down") and is_on_floor():
+		playerSprite.play("crouch")
+		position.y += 1
 
 	# Move the character
 	move_and_slide()
 	
 	# Plays walk cycle or idle
-	if not velocity.x == 0 or (not velocity.y == 0 and not is_on_floor()):
-		stopped = 0
-		
 	if velocity.y > 0 and not is_on_floor():
 		playerSprite.play("fall")
+		stopped = 0
 	else: if not velocity.x == 0 and is_on_floor():
 		playerSprite.play("walk")
+		stopped = 0
 	else: if is_on_floor():
-		if stopped > 300:
+		if Input.is_action_pressed("ui_down"):
+			playerSprite.play("crouch")
+			stopped = 0
+		else: if stopped > 300:
 			playerSprite.play("idle")
 		else:
 			playerSprite.play("default")

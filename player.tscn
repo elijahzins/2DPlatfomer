@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://e5oxlal1bvqy"]
+[gd_scene load_steps=18 format=4 uid="uid://e5oxlal1bvqy"]
 
 [ext_resource type="Script" uid="uid://c2nut0qvfe1uf" path="res://player_1.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://bus201ygnlcqi" path="res://ArtAssets/CharacterArtAssets/SpikeArtAssets/spikeStand.png" id="2_onrkg"]
@@ -19,6 +19,14 @@ size = Vector2(32, 22.666668)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n7ghd"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_b26j0")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_onrkg")
@@ -117,6 +125,8 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_urp6f"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7ghd"]
 size = Vector2(3442, 575)
 
@@ -134,8 +144,7 @@ shape = SubResource("RectangleShape2D_vonw3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player1"]
 position = Vector2(0, 3.0000002)
 sprite_frames = SubResource("SpriteFrames_n7ghd")
-animation = &"idle"
-frame_progress = 0.88063955
+animation = &"crouch"
 
 [node name="Camera2D" type="Camera2D" parent="player1"]
 
@@ -153,6 +162,9 @@ tile_set = ExtResource("9_b26j0")
 
 [node name="enemy" parent="." instance=ExtResource("10_n7ghd")]
 position = Vector2(507, 21)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemy"]
+sprite_frames = SubResource("SpriteFrames_urp6f")
 
 [node name="DeathZone" type="Area2D" parent="."]
 script = ExtResource("11_urp6f")
