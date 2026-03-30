@@ -179,4 +179,10 @@ script = ExtResource("12_bwjto")
 [node name="Checkpoint" parent="CheckpointManager" instance=ExtResource("13_606se")]
 position = Vector2(411, -92)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="healthLabel" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [connection signal="body_entered" from="DeathZone" to="DeathZone" method="_on_body_entered"]

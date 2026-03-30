@@ -4,9 +4,13 @@ const SPEED = 200
 const JUMP_FORCE = -400
 const GRAVITY = 900
 
+
 @onready var playerSprite = $AnimatedSprite2D
 var stopped = 0
 var is_grounded
+
+@onready var health_label = get_tree().root.get_node("level/CanvasLayer/healthLabel")
+var health = 3
 
 func jump():
 	velocity.y = JUMP_FORCE
@@ -61,3 +65,13 @@ func _physics_process(delta):
 func _input(event : InputEvent):
 	if (event.is_action_pressed("ui_down") && is_on_floor()):
 		position.y += 1
+		
+func decrease_health():
+	health -= 1
+	print(health)
+	if(health == 0):
+		get_tree().reload_current_scene()
+	health_label.text = "Health: %d" % health
+
+func _ready():
+	health_label.text = "Health: %d" % health
