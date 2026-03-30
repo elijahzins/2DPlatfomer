@@ -18,3 +18,7 @@ config/name="2dPlatformer"
 run/main_scene="res://player.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[global_group]
+
+GBLplayer=""

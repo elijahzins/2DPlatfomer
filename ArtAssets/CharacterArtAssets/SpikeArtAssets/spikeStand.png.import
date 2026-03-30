@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blpn2f732kijq"
-path="res://.godot/imported/spikeJumpReady.png-76ccb73cb7c0fa7d48b472f73f5b930c.ctex"
+uid="uid://bus201ygnlcqi"
+path="res://.godot/imported/spikeStand.png-97ce40bdf15f6dd8ec3eb5d06241e0da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spike/spikeJumpReady.png"
-dest_files=["res://.godot/imported/spikeJumpReady.png-76ccb73cb7c0fa7d48b472f73f5b930c.ctex"]
+source_file="res://ArtAssets/CharacterArtAssets/SpikeArtAssets/spikeStand.png"
+dest_files=["res://.godot/imported/spikeStand.png-97ce40bdf15f6dd8ec3eb5d06241e0da.ctex"]
 
 [params]
 

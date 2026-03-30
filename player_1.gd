@@ -8,6 +8,9 @@ const GRAVITY = 900
 var stopped = 0
 var is_grounded
 
+func jump():
+	velocity.y = JUMP_FORCE
+
 func _physics_process(delta):
 	# Apply gravity
 	velocity.y += GRAVITY * delta
@@ -29,12 +32,11 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		playerSprite.play("jump")
 		velocity.y = JUMP_FORCE
-	
-	# Passing through one-way tiles
-	if (Input.is_action_just_pressed("ui_down") && is_on_floor()):
+		
+	if Input.is_action_just_pressed("ui_down") and is_on_floor():
+		playerSprite.play("crouch")
 		position.y += 1
-		
-		
+
 	# Move the character
 	move_and_slide()
 	
@@ -45,13 +47,17 @@ func _physics_process(delta):
 	else: if not velocity.x == 0 and is_on_floor():
 		playerSprite.play("walk")
 		stopped = 0
-	else: if is_on_floor() and Input.is_action_pressed("ui_down"):
-		playerSprite.play("crouch")
-		stopped = 0
 	else: if is_on_floor():
-		if stopped > 300:
+		if Input.is_action_pressed("ui_down"):
+			playerSprite.play("crouch")
+			stopped = 0
+		else: if stopped > 300:
 			playerSprite.play("idle")
 		else:
 			playerSprite.play("default")
 			stopped += 1
 		
+#Passing through one-way tiles
+func _input(event : InputEvent):
+	if (event.is_action_pressed("ui_down") && is_on_floor()):
+		position.y += 1
