@@ -1,22 +1,52 @@
-[gd_scene load_steps=5 format=3 uid="uid://be2b6lgn72kb4"]
+[gd_scene load_steps=9 format=3 uid="uid://be2b6lgn72kb4"]
 
 [ext_resource type="Script" uid="uid://cgvfu6jmc0ix4" path="res://enemy.gd" id="1_7k104"]
+[ext_resource type="Texture2D" uid="uid://bp30xhdiea6f7" path="res://ArtAssets/CharacterArtAssets/BeetleArtAssets/beetleStand.png" id="2_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://do20arfqpodo3" path="res://ArtAssets/CharacterArtAssets/BeetleArtAssets/beetleWalk1.png" id="3_epg4t"]
+[ext_resource type="Texture2D" uid="uid://c06qds6vo33q0" path="res://ArtAssets/CharacterArtAssets/BeetleArtAssets/beetleStand2.png" id="4_3yqyl"]
+[ext_resource type="Texture2D" uid="uid://bef35s4vy4o6s" path="res://ArtAssets/CharacterArtAssets/BeetleArtAssets/beetleWalk2.png" id="5_wujgv"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_7k104"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_qi2p4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4gyqm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4gyqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_epg4t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3yqyl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wujgv")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7k104"]
-size = Vector2(22, 21)
+size = Vector2(61, 32)
 
 [node name="enemy" type="RigidBody2D"]
 gravity_scale = 0.0
 script = ExtResource("1_7k104")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(4.7683716e-07, 4.7683716e-07)
-scale = Vector2(20, 20)
-texture = SubResource("CanvasTexture_7k104")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_qi2p4")
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4gyqm")
@@ -24,7 +54,7 @@ shape = SubResource("RectangleShape2D_4gyqm")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -0.5)
+position = Vector2(0.5, -6)
 shape = SubResource("RectangleShape2D_7k104")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
