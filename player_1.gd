@@ -4,7 +4,7 @@ const SPEED = 200
 const JUMP_FORCE = -400
 const GRAVITY = 900
 
-var checkpoint_manager_test
+#var checkpoint_manager_test
 var player_test
 
 @onready var playerSprite = $AnimatedSprite2D
@@ -78,10 +78,15 @@ func decrease_health():
 
 #Instantly kills player when called, allows simple storage of checkpoint locations on reloadd
 func kill_player_test():
-	player_test.position = checkpoint_manager_test.lastPlayerLocation
-	get_tree().reload_current_scene()
+	player_test.position = GlobalScript.checkpoint_position
+	get_tree().reload_current_scene.call_deferred()
 
 func _ready():
 	health_label.text = "Health: %d" % health
+	
 	player_test = get_node(get_path())
-	checkpoint_manager_test = get_parent().get_node("CheckpointManager")
+	#checkpoint_manager_test = get_parent().get_node("CheckpointManager")
+	
+	if GlobalScript.checkpoint_position != Vector2(-999,-999):
+		global_position = GlobalScript.checkpoint_position
+	

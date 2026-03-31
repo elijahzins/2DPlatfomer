@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://e5oxlal1bvqy"]
+[gd_scene load_steps=16 format=4 uid="uid://e5oxlal1bvqy"]
 
 [ext_resource type="Script" uid="uid://c2nut0qvfe1uf" path="res://player_1.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://bus201ygnlcqi" path="res://ArtAssets/CharacterArtAssets/SpikeArtAssets/spikeStand.png" id="2_onrkg"]
@@ -10,8 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bgbglfmxufei6" path="res://ArtAssets/CharacterArtAssets/SpikeArtAssets/spikeWalk2.png" id="6_b26j0"]
 [ext_resource type="TileSet" uid="uid://buwfw0waydghm" path="res://tileset.tres" id="9_b26j0"]
 [ext_resource type="PackedScene" uid="uid://be2b6lgn72kb4" path="res://enemy.tscn" id="10_n7ghd"]
-[ext_resource type="Script" uid="uid://eat4x38arp7o" path="res://Scripts/SceneScripts/death_zone.gd" id="11_urp6f"]
-[ext_resource type="Script" uid="uid://dvegnyximupa0" path="res://Scripts/SceneScripts/checkpoint_manager.gd" id="12_bwjto"]
+[ext_resource type="Script" uid="uid://eat4x38arp7o" path="res://Scripts/SceneScripts/death_zone.gd" id="12_bwjto"]
 [ext_resource type="PackedScene" uid="uid://cnju75gm05fph" path="res://checkpointScene.tscn" id="13_606se"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vonw3"]
@@ -162,14 +161,13 @@ tile_set = ExtResource("9_b26j0")
 position = Vector2(507, 21)
 
 [node name="DeathZone" type="Area2D" parent="."]
-script = ExtResource("11_urp6f")
+script = ExtResource("12_bwjto")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
 position = Vector2(2, 483)
 shape = SubResource("RectangleShape2D_n7ghd")
 
 [node name="CheckpointManager" type="Node" parent="."]
-script = ExtResource("12_bwjto")
 
 [node name="Checkpoint" parent="CheckpointManager" instance=ExtResource("13_606se")]
 position = Vector2(411, -92)
