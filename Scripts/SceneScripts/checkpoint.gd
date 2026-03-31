@@ -15,8 +15,10 @@ func _process(delta: float) -> void:
 	#if GlobalScript.checkpoint_is_open == false:
 		#checkpointSprite.play("closed")
 	#else: 
-	if checkpointSprite.animation == "opening" and checkpointSprite.frame == 4:
+	if checkpointSprite.animation == "opening" and checkpointSprite.frame == 4 and checkpointSprite.get_playing_speed() > 0:
 		checkpointSprite.play("opened")
+	if checkpointSprite.animation == "opening" and checkpointSprite.frame == 0 and checkpointSprite.get_playing_speed() < 0:
+		checkpointSprite.play("closed")
 
 #if the player's body is a part of the "GBLplayer" do the following when entering the checkpoint
 func _on_body_entered(body: Node2D) -> void:
@@ -29,5 +31,5 @@ func _on_body_entered(body: Node2D) -> void:
 			
 #when encountering a Area2D checkpoint node, close the previous checkpoint and make the new checkpoint the previous
 		if GlobalScript.previous_checkpoint_node:
-			GlobalScript.previous_checkpoint_node.checkpointSprite.play("closed")
+			GlobalScript.previous_checkpoint_node.checkpointSprite.play_backwards("opening")
 		GlobalScript.previous_checkpoint_node = self
