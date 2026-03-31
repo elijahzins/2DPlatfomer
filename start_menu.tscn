@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmynormoh4t1l"]
+[gd_scene load_steps=3 format=3 uid="uid://ceds2og7lv0bo"]
 
-[ext_resource type="Script" uid="uid://cbtlgln44rgx0" path="res://start_menu.gd" id="1_jwbto"]
+[ext_resource type="Script" path="res://start_menu.gd" id="1_jwbto"]
+[ext_resource type="Texture2D" uid="uid://dq8myohi1lo0o" path="res://ArtAssets/backgroundAll.png" id="2_ia0g5"]
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -10,6 +11,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jwbto")
+
+[node name="BackgroundAll" type="Sprite2D" parent="."]
+position = Vector2(574, 323)
+scale = Vector2(0.9653125, 0.9653126)
+texture = ExtResource("2_ia0g5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

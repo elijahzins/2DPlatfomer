@@ -1,18 +1,67 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnju75gm05fph"]
+[gd_scene load_steps=9 format=3 uid="uid://cnju75gm05fph"]
 
 [ext_resource type="Script" uid="uid://3quxf1ndqny7" path="res://Scripts/SceneScripts/checkpoint.gd" id="1_4j7m2"]
+[ext_resource type="Texture2D" uid="uid://bfkvvqa48ome3" path="res://ArtAssets/EntityArtAssets/CheckpointArtAssets/checkpoint1.png" id="2_s0klg"]
+[ext_resource type="Texture2D" uid="uid://dnjblombclgk3" path="res://ArtAssets/EntityArtAssets/CheckpointArtAssets/checkpoint5.png" id="3_ug3ec"]
+[ext_resource type="Texture2D" uid="uid://bhh8l0ggca4r" path="res://ArtAssets/EntityArtAssets/CheckpointArtAssets/checkpoint2.png" id="4_l0127"]
+[ext_resource type="Texture2D" uid="uid://di042xrp1iacj" path="res://ArtAssets/EntityArtAssets/CheckpointArtAssets/checkpoint3.png" id="5_1pvks"]
+[ext_resource type="Texture2D" uid="uid://c20dq4cr6k2jd" path="res://ArtAssets/EntityArtAssets/CheckpointArtAssets/checkpoint4.png" id="6_k1fvf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xg5mq"]
 size = Vector2(20, 229)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xfhcm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_s0klg")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ug3ec")
+}],
+"loop": true,
+"name": &"opened",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_s0klg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_l0127")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1pvks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_k1fvf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ug3ec")
+}],
+"loop": true,
+"name": &"opening",
+"speed": 10.0
+}]
 
 [node name="Checkpoint" type="Area2D"]
 script = ExtResource("1_4j7m2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -104.5)
+position = Vector2(0, -103)
 shape = SubResource("RectangleShape2D_xg5mq")
 
 [node name="RespawnPoint" type="Marker2D" parent="."]
 position = Vector2(50, -28)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_xfhcm")
+animation = &"opening"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
