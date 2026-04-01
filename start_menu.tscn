@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ceds2og7lv0bo"]
 
-[ext_resource type="Script" path="res://start_menu.gd" id="1_jwbto"]
+[ext_resource type="Script" uid="uid://cbtlgln44rgx0" path="res://start_menu.gd" id="1_jwbto"]
 [ext_resource type="Texture2D" uid="uid://dq8myohi1lo0o" path="res://ArtAssets/backgroundAll.png" id="2_ia0g5"]
 
 [node name="StartMenu" type="Control"]
@@ -18,24 +18,27 @@ scale = Vector2(0.9653125, 0.9653126)
 texture = ExtResource("2_ia0g5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 400)
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -21.0
-offset_top = -33.0
-offset_right = 21.0
-offset_bottom = 33.0
+anchor_bottom = 1.0
+offset_left = -179.25
+offset_top = -400.0
+offset_right = 179.25
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+alignment = 1
 
 [node name="PlayButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Play"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Quit"
 

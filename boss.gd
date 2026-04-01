@@ -1,28 +1,29 @@
-extends CharacterBody2D
+extends CharacterBody2D 
 
-@export var speed = 80.0
-@export var left_limit = -50.0
-@export var right_limit = 50.0
+@export var speed: float = 80.0
+@export var left_limit: float = -50.0
+@export var right_limit: float = 50.0
 
-@onready var enemySprite = $AnimatedSprite2D
+@onready var enemySprite = $Sprite2D
 
 var direction := 1
-var enemyLives = 1 
+var enemyLives = 3
 
 func _ready():
-	enemySprite.play("walk")
-
+	pass
+	
 func _physics_process(delta):
 	velocity.x = direction * speed
 	move_and_slide()
 
+	# Flip direction when reaching patrol limits
 	if position.x < left_limit:
 		direction = 1
 		enemySprite.flip_h = true
 	elif position.x > right_limit:
 		direction = -1
 		enemySprite.flip_h = false
-
+		
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if (body.name == "player1"):
 		var y_delta = position.y - body.position.y
