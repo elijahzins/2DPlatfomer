@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var checkpointSprite = $AnimatedSprite2D
-var opened = false
+#var opened = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,10 +24,10 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("GBLplayer") && GlobalScript.checkpoint_position != $RespawnPoint.global_position:
 		GlobalScript.checkpoint_position = $RespawnPoint.global_position
-		if GlobalScript.checkpoint_is_open == false:
-			GlobalScript.checkpoint_is_open = true
-			checkpointSprite.play("opening")
-			GlobalScript.checkpoint_is_open = false
+		#if GlobalScript.checkpoint_is_open == false:
+			#GlobalScript.checkpoint_is_open = true
+		checkpointSprite.play("opening")
+			#GlobalScript.checkpoint_is_open = false
 			
 #when encountering a Area2D checkpoint node, close the previous checkpoint and make the new checkpoint the previous
 		if GlobalScript.previous_checkpoint_node:
