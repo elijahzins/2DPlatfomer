@@ -60,8 +60,9 @@ shape = SubResource("RectangleShape2D_xg5mq")
 position = Vector2(50, -28)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -7
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_xfhcm")
-animation = &"opening"
+animation = &"closed"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

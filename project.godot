@@ -21,7 +21,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalScript="*res://global_script.gd"
+GlobalScript="*res://Scripts/SceneScripts/global_script.gd"
 
 [display]
 

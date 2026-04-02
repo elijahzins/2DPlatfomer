@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://e3uv5r3oeivd"]
 
-[ext_resource type="Script" uid="uid://8hs1rw6vvcl" path="res://boss.gd" id="1_0bnu1"]
+[ext_resource type="Script" uid="uid://8hs1rw6vvcl" path="res://Scripts/EnemyScripts/boss.gd" id="1_0bnu1"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_6xxrv"]
 

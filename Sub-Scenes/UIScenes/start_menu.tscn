@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ceds2og7lv0bo"]
 
-[ext_resource type="Script" uid="uid://cbtlgln44rgx0" path="res://start_menu.gd" id="1_jwbto"]
+[ext_resource type="Script" uid="uid://cbtlgln44rgx0" path="res://Scripts/SceneScripts/start_menu.gd" id="1_jwbto"]
 [ext_resource type="Texture2D" uid="uid://dq8myohi1lo0o" path="res://ArtAssets/backgroundAll.png" id="2_ia0g5"]
 
 [node name="StartMenu" type="Control"]
