@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjw6sbdxdits4"]
+
+[ext_resource type="Script" uid="uid://bwxvxfg88sp0h" path="res://Scripts/SceneScripts/character_select.gd" id="1_81cct"]
+[ext_resource type="Texture2D" uid="uid://ispef3uknk7y" path="res://ArtAssets/32_Legs_Character_Select.png" id="2_v5vq6"]
+
+[node name="CharacterSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_81cct")
+
+[node name="32LegsCharacterSelect" type="Sprite2D" parent="."]
+position = Vector2(576, 322.25)
+scale = Vector2(0.596875, 0.59768516)
+texture = ExtResource("2_v5vq6")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 365.0
+offset_top = 10.0
+offset_right = 784.0
+offset_bottom = 631.0
+columns = 2
+
+[node name="SpikeSelectButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WillowSelectButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BenSelectButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SchmittySelectButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SpikeStartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 405.0
+offset_right = 291.0
+offset_bottom = 504.0
+
+[node name="SchmittyStartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 861.0
+offset_top = 403.0
+offset_right = 1046.0
+offset_bottom = 502.0
+
+[connection signal="pressed" from="SpikeStartButton" to="." method="_on_spike_start_button_pressed"]
+[connection signal="pressed" from="SchmittyStartButton" to="." method="_on_schmitty_start_button_pressed"]

@@ -1,0 +1,139 @@
+[gd_scene load_steps=11 format=3 uid="uid://0w067dwxnl7e"]
+
+[ext_resource type="Script" uid="uid://c2nut0qvfe1uf" path="res://Scripts/CharacterScripts/player_1.gd" id="1_joepp"]
+[ext_resource type="Texture2D" uid="uid://blpn2f732kijq" path="res://ArtAssets/CharacterArtAssets/SpikeArtAssets/spikeJumpReady.png" id="2_y0e15"]
+[ext_resource type="Texture2D" uid="uid://bus201ygnlcqi" path="res://ArtAssets/CharacterArtAssets/SpikeArtAssets/spikeStand.png" id="3_fnrbu"]
+[ext_resource type="Texture2D" uid="uid://dxe3imhhspc6q" path="res://ArtAssets/CharacterArtAssets/SpikeArtAssets/spikeFall.png" id="4_0q13e"]
+[ext_resource type="Texture2D" uid="uid://doto8iqfqb4dn" path="res://ArtAssets/CharacterArtAssets/SpikeArtAssets/spikeJump.png" id="5_uu6ii"]
+[ext_resource type="Texture2D" uid="uid://dx7j4gih8vtvd" path="res://ArtAssets/CharacterArtAssets/SpikeArtAssets/spikeWalk1.png" id="6_2er1a"]
+[ext_resource type="Texture2D" uid="uid://4pedbhelfsyd" path="res://ArtAssets/CharacterArtAssets/SpikeArtAssets/spikeStand2.png" id="7_imfro"]
+[ext_resource type="Texture2D" uid="uid://bgbglfmxufei6" path="res://ArtAssets/CharacterArtAssets/SpikeArtAssets/spikeWalk2.png" id="8_uuund"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdf8b"]
+size = Vector2(32, 24.88889)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d1x03"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_y0e15")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fnrbu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0q13e")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_y0e15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fnrbu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uu6ii")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fnrbu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_y0e15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fnrbu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uu6ii")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fnrbu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_y0e15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0q13e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_y0e15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0q13e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_y0e15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0q13e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_y0e15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0q13e")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_y0e15")
+}, {
+"duration": 10.0,
+"texture": ExtResource("5_uu6ii")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fnrbu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2er1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_imfro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_uuund")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="PlayerSpike" type="Node2D"]
+
+[node name="player1" type="CharacterBody2D" parent="." groups=["GBLplayer"]]
+disable_mode = 2
+script = ExtResource("1_joepp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player1"]
+position = Vector2(-9.536743e-07, 6.4000006)
+scale = Vector2(1.8, 1.8)
+shape = SubResource("RectangleShape2D_qdf8b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player1"]
+position = Vector2(0, 3.0000002)
+sprite_frames = SubResource("SpriteFrames_d1x03")
+animation = &"walk"
+
+[node name="Camera2D" type="Camera2D" parent="player1"]
