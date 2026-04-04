@@ -10,7 +10,7 @@ size = Vector2(71, 43)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnbgr"]
 size = Vector2(76, 45)
 
-[node name="boss" type="CharacterBody2D"]
+[node name="boss" type="CharacterBody2D" groups=["GBLEnemy", "GBLenemy"]]
 script = ExtResource("1_0bnu1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("GBLplayer") && body.name == "player1":
+	if body.is_in_group("GBLplayer"):
 		body.kill_player_test()
 		print("Death Zone Hit")
 

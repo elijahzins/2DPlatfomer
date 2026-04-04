@@ -80,7 +80,8 @@ func decrease_health():
 func kill_player_test():
 	player_test.position = GlobalScript.checkpoint_position
 	get_tree().reload_current_scene.call_deferred()
-
+	
+	
 func _ready():
 	health_label.text = "Health: %d" % health
 	

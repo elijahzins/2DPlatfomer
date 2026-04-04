@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var enemySprite = $Sprite2D
 
 var direction := 1
-var enemyLives = 3
+var enemyLives = 15
 
 func _ready():
 	pass
@@ -29,10 +29,15 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		var y_delta = position.y - body.position.y
 		if (y_delta > 40):
 			print("Enemy damaged")
-			enemyLives = enemyLives - 1
+			enemyLives = enemyLives - 5
 			if (enemyLives <= 0):
 				queue_free()
 			body.jump()
 		else:
 			print("Decrease player health")
 			body.decrease_health()
+			
+func damage_enemy():
+	enemyLives -= 1
+	if enemyLives <= 0:
+		queue_free()

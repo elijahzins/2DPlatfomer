@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var enemySprite = $AnimatedSprite2D
 
 var direction := 1
-var enemyLives = 1 
+var enemyLives = 5 
 
 func _ready():
 	enemySprite.play("walk")
@@ -24,11 +24,11 @@ func _physics_process(delta):
 		enemySprite.flip_h = false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if (body.name == "player1"):
+	if (body.is_in_group("GBLplayer")):
 		var y_delta = position.y - body.position.y
 		if (y_delta > 40):
 			print("Enemy damaged")
-			enemyLives = enemyLives - 1
+			enemyLives = enemyLives - 5
 			if (enemyLives <= 0):
 				queue_free()
 			body.jump()
@@ -36,3 +36,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			print("Decrease player health")
 			body.decrease_health()
 		
+func damage_enemy():
+	enemyLives -= 1
+	if enemyLives <= 0:
+		queue_free()

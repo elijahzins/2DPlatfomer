@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://casoc4wkxpjfe"]
 
-[ext_resource type="Script" uid="uid://c2nut0qvfe1uf" path="res://Scripts/CharacterScripts/player_1.gd" id="1_a6gvj"]
+[ext_resource type="Script" uid="uid://c0pif3jrx3y84" path="res://Scripts/CharacterScripts/schmitty.gd" id="1_f2asf"]
 [ext_resource type="Texture2D" uid="uid://c50wgoy3h4wop" path="res://ArtAssets/CharacterArtAssets/SchmittyArtAssets/schmittyJumpReady.png" id="2_a6gvj"]
 [ext_resource type="Texture2D" uid="uid://dxphqjgv5uoxm" path="res://ArtAssets/CharacterArtAssets/SchmittyArtAssets/schmittyStand.png" id="3_o1cpv"]
 [ext_resource type="Texture2D" uid="uid://cl0rhc04v4rmy" path="res://ArtAssets/CharacterArtAssets/SchmittyArtAssets/schmittyFall.png" id="4_cnpj7"]
@@ -120,11 +120,11 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="PlayerSpike" type="Node2D"]
+[node name="PlayerSchmitty" type="Node2D"]
 
 [node name="player1" type="CharacterBody2D" parent="." groups=["GBLplayer"]]
 disable_mode = 2
-script = ExtResource("1_a6gvj")
+script = ExtResource("1_f2asf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player1"]
 position = Vector2(-9.536743e-07, 6.4000006)
@@ -136,3 +136,9 @@ position = Vector2(0, 3.0000002)
 sprite_frames = SubResource("SpriteFrames_d1x03")
 
 [node name="Camera2D" type="Camera2D" parent="player1"]
+
+[node name="ShotPosition" type="Marker2D" parent="player1"]
+position = Vector2(33, 8)
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.33

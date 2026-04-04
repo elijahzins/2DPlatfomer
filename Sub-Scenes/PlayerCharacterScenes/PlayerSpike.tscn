@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://0w067dwxnl7e"]
 
-[ext_resource type="Script" uid="uid://c2nut0qvfe1uf" path="res://Scripts/CharacterScripts/player_1.gd" id="1_joepp"]
+[ext_resource type="Script" uid="uid://c2nut0qvfe1uf" path="res://Scripts/CharacterScripts/spike.gd" id="1_joepp"]
 [ext_resource type="Texture2D" uid="uid://blpn2f732kijq" path="res://ArtAssets/CharacterArtAssets/SpikeArtAssets/spikeJumpReady.png" id="2_y0e15"]
 [ext_resource type="Texture2D" uid="uid://bus201ygnlcqi" path="res://ArtAssets/CharacterArtAssets/SpikeArtAssets/spikeStand.png" id="3_fnrbu"]
 [ext_resource type="Texture2D" uid="uid://dxe3imhhspc6q" path="res://ArtAssets/CharacterArtAssets/SpikeArtAssets/spikeFall.png" id="4_0q13e"]

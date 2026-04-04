@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=4 uid="uid://e5oxlal1bvqy"]
 
 [ext_resource type="Texture2D" uid="uid://cndfnyv08j8dw" path="res://ArtAssets/Tilesets/tiles.png" id="1_kdh2f"]
-[ext_resource type="Script" uid="uid://c6dg2fc4cqmvs" path="res://Sub-Scenes/EnvironmentalScenes/level_1.gd" id="1_rv07d"]
+[ext_resource type="Script" uid="uid://c6dg2fc4cqmvs" path="res://Scripts/LevelScripts/level_1.gd" id="1_rv07d"]
 [ext_resource type="TileSet" uid="uid://b6vpfrif7ukrx" path="res://ArtAssets/Tilesets/DefaultTiles.tres" id="2_qto03"]
 [ext_resource type="PackedScene" uid="uid://be2b6lgn72kb4" path="res://Sub-Scenes/EnemyScenes/enemy.tscn" id="3_b7107"]
 [ext_resource type="Script" uid="uid://eat4x38arp7o" path="res://Scripts/SceneScripts/death_zone.gd" id="4_1s2k6"]
