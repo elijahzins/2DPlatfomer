@@ -75,6 +75,7 @@ func _input(event : InputEvent):
 	if (event.is_action_pressed("ui_down") && is_on_floor()):
 		position.y += 1
 		
+	#Ranged attack for schmitty
 	if Input.is_action_just_pressed("ranged_attack"):
 		if can_attack == true:
 			can_attack = false
