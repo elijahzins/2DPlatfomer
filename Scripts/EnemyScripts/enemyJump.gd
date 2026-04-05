@@ -53,3 +53,8 @@ func _on_killbox_body_entered(body: Node2D) -> void:
 		if enemyLives <= 0:
 			queue_free()
 		body.jump()
+
+func damage_enemy():
+	enemyLives -= 1
+	if enemyLives <= 0:
+		queue_free()
