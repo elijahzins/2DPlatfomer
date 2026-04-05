@@ -1,16 +1,18 @@
 extends CharacterBody2D 
 
 @export var speed: float = 80.0
-@export var left_limit: float = -50.0
-@export var right_limit: float = 50.0
+@export var patrolLength = 40.0
 
 @onready var enemySprite = $Sprite2D
 
+var left_limit: float
+var right_limit: float
 var direction := 1
 var enemyLives = 15
 
 func _ready():
-	pass
+	left_limit = position.x - patrolLength
+	right_limit = position.x + patrolLength
 	
 func _physics_process(delta):
 	velocity.x = direction * speed

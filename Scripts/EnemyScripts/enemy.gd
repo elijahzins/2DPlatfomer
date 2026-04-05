@@ -1,15 +1,18 @@
 extends CharacterBody2D
 
 @export var speed = 80.0
-@export var left_limit = -50.0
-@export var right_limit = 50.0
+@export var patrolDistance = 50.0
 
 @onready var enemySprite = $AnimatedSprite2D
 
 var direction := 1
 var enemyLives = 5 
+var left_limit: float
+var right_limit: float
 
 func _ready():
+	left_limit = position.x - patrolDistance
+	right_limit = position.x + patrolDistance
 	enemySprite.play("walk")
 
 func _physics_process(delta):
@@ -35,8 +38,3 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		else:
 			print("Decrease player health")
 			body.decrease_health()
-		
-func damage_enemy():
-	enemyLives -= 1
-	if enemyLives <= 0:
-		queue_free()

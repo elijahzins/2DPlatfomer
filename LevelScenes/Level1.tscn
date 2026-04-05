@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://e5oxlal1bvqy"]
+[gd_scene load_steps=16 format=4 uid="uid://e5oxlal1bvqy"]
 
 [ext_resource type="Texture2D" uid="uid://cndfnyv08j8dw" path="res://ArtAssets/Tilesets/tiles.png" id="1_kdh2f"]
 [ext_resource type="Script" uid="uid://c6dg2fc4cqmvs" path="res://Scripts/LevelScripts/level_1.gd" id="1_rv07d"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://eat4x38arp7o" path="res://Scripts/SceneScripts/death_zone.gd" id="4_1s2k6"]
 [ext_resource type="PackedScene" uid="uid://cnju75gm05fph" path="res://Sub-Scenes/EnvironmentalScenes/checkpointScene.tscn" id="5_6chyn"]
 [ext_resource type="PackedScene" uid="uid://e3uv5r3oeivd" path="res://Sub-Scenes/EnemyScenes/boss.tscn" id="6_l1d1c"]
+[ext_resource type="PackedScene" uid="uid://cylkvy3d22iec" path="res://Sub-Scenes/EnemyScenes/enemyJump.tscn" id="8_20fby"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qi5rn"]
 texture = ExtResource("1_kdh2f")
@@ -286,5 +287,8 @@ offset_bottom = 23.0
 
 [node name="boss" parent="." instance=ExtResource("6_l1d1c")]
 position = Vector2(866, 4)
+
+[node name="enemyJump" parent="." instance=ExtResource("8_20fby")]
+position = Vector2(-347, 17)
 
 [connection signal="body_entered" from="DeathZone" to="DeathZone" method="_on_body_entered"]
