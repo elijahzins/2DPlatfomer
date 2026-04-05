@@ -1,17 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnyw424p80rro"]
+[gd_scene load_steps=5 format=3 uid="uid://bnyw424p80rro"]
 
 [ext_resource type="Script" uid="uid://jqbj1c6gcm7w" path="res://Scripts/CharacterScripts/schmitty_ranged_attack.gd" id="1_wojfh"]
-[ext_resource type="Texture2D" uid="uid://cl0rhc04v4rmy" path="res://ArtAssets/CharacterArtAssets/SchmittyArtAssets/schmittyFall.png" id="2_n7p4o"]
-[ext_resource type="Texture2D" uid="uid://dld1hbt5vd74r" path="res://ArtAssets/CharacterArtAssets/SchmittyArtAssets/schmittyJump.png" id="3_eaipn"]
+[ext_resource type="Texture2D" uid="uid://g1jfpaab27k1" path="res://ArtAssets/CharacterArtAssets/SchmittyArtAssets/schmittyProjectile.png" id="2_5r6qp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5qr5b"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_n7p4o")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_eaipn")
+"texture": ExtResource("2_5r6qp")
 }],
 "loop": true,
 "name": &"RangedAttackTest",
@@ -34,7 +30,7 @@ autoplay = "RangedAttackTest"
 position = Vector2(13, 14)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-13, -11)
+position = Vector2(-13, -14)
 shape = SubResource("RectangleShape2D_3mfmv")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
