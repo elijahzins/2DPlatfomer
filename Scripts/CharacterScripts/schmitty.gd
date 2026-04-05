@@ -77,7 +77,24 @@ func _input(event : InputEvent):
 		
 	#Ranged attack for schmitty
 	if Input.is_action_just_pressed("ranged_attack"):
-		if can_attack == true:
+		schmitty_ranged_attack()
+		
+func decrease_health():
+	health -= 1
+	print(health)
+	if(health == 0):
+		#get_tree().reload_current_scene()
+		kill_player_test()
+	health_label.text = "Health: %d" % health
+
+#Instantly kills player when called, allows simple storage of checkpoint locations on reloadd
+func kill_player_test():
+	player_test.position = GlobalScript.checkpoint_position
+	get_tree().reload_current_scene.call_deferred()
+
+#Handles the creation and position od Schmitty's ranged attack
+func schmitty_ranged_attack():
+	if can_attack == true:
 			can_attack = false
 			print("ranged attack")
 			#$AnimatedSprite2D.play("") #This is where we add the attack animation
@@ -102,22 +119,6 @@ func _input(event : InputEvent):
 			rangedInstanciate.global_position = $ShotPosition.position
 			add_child(rangedInstanciate)
 			get_tree().create_timer(.350).timeout.connect(func(): can_attack = true)
-		
-func decrease_health():
-	health -= 1
-	print(health)
-	if(health == 0):
-		#get_tree().reload_current_scene()
-		kill_player_test()
-	health_label.text = "Health: %d" % health
-
-#Instantly kills player when called, allows simple storage of checkpoint locations on reloadd
-func kill_player_test():
-	player_test.position = GlobalScript.checkpoint_position
-	get_tree().reload_current_scene.call_deferred()
-
-
-
 
 func _ready():
 	health_label.text = "Health: %d" % health
