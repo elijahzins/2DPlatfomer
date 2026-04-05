@@ -38,3 +38,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		else:
 			print("Decrease player health")
 			body.decrease_health()
+
+#for schmitty's ranged attack
+func damage_enemy():
+	enemyLives -= 1
+	if enemyLives <= 0:
+		queue_free()

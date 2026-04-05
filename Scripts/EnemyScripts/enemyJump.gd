@@ -54,6 +54,7 @@ func _on_killbox_body_entered(body: Node2D) -> void:
 			queue_free()
 		body.jump()
 
+#for schmitty's ranged attack
 func damage_enemy():
 	enemyLives -= 1
 	if enemyLives <= 0:
