@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://e5oxlal1bvqy"]
+[gd_scene load_steps=16 format=4 uid="uid://e5oxlal1bvqy"]
 
 [ext_resource type="Texture2D" uid="uid://cndfnyv08j8dw" path="res://ArtAssets/Tilesets/tiles.png" id="1_kdh2f"]
 [ext_resource type="Script" uid="uid://c6dg2fc4cqmvs" path="res://Scripts/LevelScripts/level_1.gd" id="1_rv07d"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://eat4x38arp7o" path="res://Scripts/SceneScripts/death_zone.gd" id="4_1s2k6"]
 [ext_resource type="PackedScene" uid="uid://cnju75gm05fph" path="res://Sub-Scenes/EnvironmentalScenes/checkpointScene.tscn" id="5_6chyn"]
 [ext_resource type="PackedScene" uid="uid://e3uv5r3oeivd" path="res://Sub-Scenes/EnemyScenes/boss.tscn" id="6_l1d1c"]
+[ext_resource type="PackedScene" uid="uid://cra1vhsnra6cs" path="res://Sub-Scenes/UIScenes/pause_menu.tscn" id="8_20fby"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qi5rn"]
 texture = ExtResource("1_kdh2f")
@@ -237,6 +238,7 @@ sources/1 = SubResource("TileSetAtlasSource_606se")
 size = Vector2(3442, 575)
 
 [node name="level" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_rv07d")
 
 [node name="Tilemap" type="Node2D" parent="."]
@@ -256,9 +258,6 @@ tile_set = ExtResource("2_qto03")
 [node name="ForegroundLayer" type="TileMapLayer" parent="Tilemap"]
 z_index = 20
 tile_set = SubResource("TileSet_u1c27")
-
-[node name="enemy" parent="." instance=ExtResource("3_b7107")]
-position = Vector2(507, 21)
 
 [node name="DeathZone" type="Area2D" parent="."]
 script = ExtResource("4_1s2k6")
@@ -284,7 +283,17 @@ position = Vector2(411, -92)
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="boss" parent="." instance=ExtResource("6_l1d1c")]
+[node name="PauseMenu" parent="." instance=ExtResource("8_20fby")]
+process_mode = 3
+visible = false
+
+[node name="Pauseable" type="Node2D" parent="."]
+process_mode = 1
+
+[node name="enemy" parent="Pauseable" instance=ExtResource("3_b7107")]
+position = Vector2(507, 21)
+
+[node name="boss" parent="Pauseable" instance=ExtResource("6_l1d1c")]
 position = Vector2(866, 4)
 
 [connection signal="body_entered" from="DeathZone" to="DeathZone" method="_on_body_entered"]

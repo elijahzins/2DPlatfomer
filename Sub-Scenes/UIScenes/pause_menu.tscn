@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3 uid="uid://cra1vhsnra6cs"]
+
+[ext_resource type="Script" uid="uid://coykqm43le6mc" path="res://Scripts/SceneScripts/pause_menu.gd" id="1_4yuae"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="PauseMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4yuae")
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu"]
+layout_mode = 0
+offset_left = 412.0
+offset_top = 247.0
+offset_right = 693.0
+offset_bottom = 389.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.5
+offset_top = -71.0
+offset_right = 140.5
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Resume" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="CharacterSelect" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Character Select"
+
+[node name="MainMenu" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="Quit" type="Button" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Resume" to="PauseMenu" method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/CharacterSelect" to="PauseMenu" method="_on_character_select_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/MainMenu" to="PauseMenu" method="_on_main_menu_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/Quit" to="PauseMenu" method="_on_quit_pressed"]
